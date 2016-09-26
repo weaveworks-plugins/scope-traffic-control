@@ -1,0 +1,9 @@
+package: github.com/weaveworks-plugins/traffic-control
+import:
+- package: github.com/Sirupsen/logrus
+  version: ~0.10.0
+- package: github.com/containernetworking/cni
+  version: ~0.3.0
+  subpackages:
+  - pkg/ns
+- package: github.com/fsouza/go-dockerclient
