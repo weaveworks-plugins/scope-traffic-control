@@ -1,0 +1,54 @@
+hash: bd9336b880a82c02966079471881dae0531b073064ce86a756840c0beb1c52bc
+updated: 2016-09-27T14:59:05.607799553+02:00
+imports:
+- name: github.com/containernetworking/cni
+  version: 5c3c17164270150467498a32c71436c7cd5501be
+  subpackages:
+  - pkg/ns
+- name: github.com/docker/docker
+  version: 789e6868904d724ed56fe4b141b4b557f477f1ca
+  subpackages:
+  - api/types/filters
+  - api/types/versions
+  - opts
+  - pkg/archive
+  - pkg/fileutils
+  - pkg/homedir
+  - pkg/idtools
+  - pkg/ioutils
+  - pkg/longpath
+  - pkg/pools
+  - pkg/promise
+  - pkg/stdcopy
+  - pkg/system
+- name: github.com/docker/engine-api
+  version: 4290f40c056686fcaa5c9caf02eac1dde9315adf
+  subpackages:
+  - types/mount
+  - types/swarm
+- name: github.com/docker/go-units
+  version: f2145db703495b2e525c59662db69a7344b00bb8
+- name: github.com/fsouza/go-dockerclient
+  version: 30ceb1a86b568e935e73aaf0a4df18be5c8f945d
+- name: github.com/hashicorp/go-cleanhttp
+  version: ad28ea4487f05916463e2423a55166280e8254b5
+- name: github.com/Microsoft/go-winio
+  version: ce2922f643c8fd76b46cadc7f404a06282678b34
+- name: github.com/opencontainers/runc
+  version: 2940d2e2e9365b4b3fec8ae24822435195f56b61
+  subpackages:
+  - libcontainer/system
+  - libcontainer/user
+- name: github.com/Sirupsen/logrus
+  version: 4b6ea7319e214d98c938f12692336f7ca9348d6b
+- name: golang.org/x/net
+  version: 6a513affb38dc9788b449d59ffed099b8de18fa0
+  subpackages:
+  - context
+  - context/ctxhttp
+- name: golang.org/x/sys
+  version: e11762ca30adc5b39fdbfd8c4250dabeb8e456d3
+  subpackages:
+  - unix
+  - windows
+testImports: []
