@@ -19,7 +19,7 @@ dependencies:
 
 test:
   override:
-    - cd $SRCDIR && make .traffic-control.uptodate && docker tag weaveworks-plugins/scope-traffic-control weaveworks-plugins/scope-traffic-control:$(./tools/image-tag):
+    - cd $SRCDIR && make .traffic-control.uptodate && docker tag weaveworksplugins/scope-traffic-control weaveworksplugins/scope-traffic-control:$(./tools/image-tag):
         parallel: false
         timeout: 300
 
@@ -30,9 +30,9 @@ deployment:
       - |
         test -z "${DOCKER_USER}" || (
           docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS &&
-          (test "${DOCKER_ORGANIZATION:-$DOCKER_USER}" == "weaveworks-plugins" || (
-            docker tag weaveworks-plugins/scope-traffic-control:latest ${DOCKER_ORGANIZATION:-$DOCKER_USER}/scope-traffic-control:latest &&
-            docker tag weaveworks-plugins/scope-traffic-control:$(./tools/image-tag) ${DOCKER_ORGANIZATION:-$DOCKER_USER}/scope-traffic-control:$(./tools/image-tag)
+          (test "${DOCKER_ORGANIZATION:-$DOCKER_USER}" == "weaveworksplugins" || (
+            docker tag weaveworksplugins/scope-traffic-control:latest ${DOCKER_ORGANIZATION:-$DOCKER_USER}/scope-traffic-control:latest &&
+            docker tag weaveworksplugins/scope-traffic-control:$(./tools/image-tag) ${DOCKER_ORGANIZATION:-$DOCKER_USER}/scope-traffic-control:$(./tools/image-tag)
           )) &&
           docker push ${DOCKER_ORGANIZATION:-$DOCKER_USER}/scope-traffic-control &&
           docker push ${DOCKER_ORGANIZATION:-$DOCKER_USER}/scope-traffic-control:$(./tools/image-tag)
@@ -43,6 +43,6 @@ deployment:
       - >
         test -z "${DEPLOY_BRANCH}" || test -z "${DOCKER_USER}" || (
           docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS &&
-          docker tag weaveworks-plugins/scope-traffic-control:latest ${DOCKER_ORGANIZATION:-$DOCKER_USER}/scope-traffic-control:${CIRCLE_BRANCH//\//-} &&
+          docker tag weaveworksplugins/scope-traffic-control:latest ${DOCKER_ORGANIZATION:-$DOCKER_USER}/scope-traffic-control:${CIRCLE_BRANCH//\//-} &&
           docker push ${DOCKER_ORGANIZATION:-$DOCKER_USER}/scope-traffic-control:${CIRCLE_BRANCH//\//-}
         )
