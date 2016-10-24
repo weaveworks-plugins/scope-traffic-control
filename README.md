@@ -7,7 +7,7 @@ The following images show a simple example of how **status** and **controls** ar
 
 ## How to Run Scope Traffic Control Plugin
 
-* Using a pre-built Docker image
+### Using a pre-built Docker image
 
 If you want to make sure of running the latest available version of the plugin, you can pull the image from docker hub.
 
@@ -24,7 +24,15 @@ docker run --rm -it \
 			 --name weaveworksplugins-scope-traffic-control weaveworksplugins/scope-traffic-control:latest
 ```
 
-* Recompiling an image
+### Kubernetes
+
+If you want to use the Scope Traffic Control plugin in an already set up Kubernetes cluster with Weave Scope running on it, you just need to run:
+
+```
+kubectl create -f https://github.com/weaveworks-plugins/scope-traffic-control/tree/master/deployments/k8s-traffic-control.yaml
+```
+
+### Recompiling an image
 
 ```
 git clone git@github.com:weaveworks-plugins/scope-traffic-control.git
@@ -33,7 +41,6 @@ cd scope-traffic-control; make;
 
 **Note** The Scope Traffic Control plugin works with *Weave Scope*, you need to have Scope up and running before you can use it.
 If the running plugin has been registered by Scope, you will see it in the list of `PLUGINS` in the bottom right of the UI (see the rectangle in the above figure).
-
 
 ## Visualization
 
