@@ -6,6 +6,7 @@ The following images show a simple example of how **status** and **controls** ar
 <img src="imgs/container_view.png" width="200" alt="Scope Probe plugin screenshot" align="center">
 
 ## How to Run Scope Traffic Control Plugin
+**Note**: This plugin requires the `sch_netem` kernel module.
 
 ### Using a pre-built Docker image
 
