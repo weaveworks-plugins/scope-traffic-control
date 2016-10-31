@@ -93,12 +93,13 @@ func TrafficControlStatusInit() *TrafficControlStatus {
 var trafficControlStatusCache map[string]*TrafficControlStatus
 
 func main() {
-	const socket = "/var/run/scope/plugins/traffic-control.sock"
+	// We put the socket in a sub-directory to have more control on the permissions
+	const socketPath = "/var/run/scope/plugins/traffic-control/traffic-control.sock"
 
 	// Handle the exit signal
-	setupSignals(socket)
+	setupSignals(socketPath)
 
-	listener, err := setupSocket(socket)
+	listener, err := setupSocket(socketPath)
 	if err != nil {
 		log.Fatalf("Failed to setup socket: %v", err)
 	}
@@ -127,27 +128,27 @@ func main() {
 	}
 }
 
-func setupSignals(socket string) {
+func setupSignals(socketPath string) {
 	interrupt := make(chan os.Signal, 1)
 	signal.Notify(interrupt, os.Interrupt)
 	go func() {
 		<-interrupt
-		os.Remove(socket)
+		os.RemoveAll(filepath.Dir(socketPath))
 		os.Exit(0)
 	}()
 }
 
-func setupSocket(socket string) (net.Listener, error) {
-	os.Remove(socket)
-	if err := os.MkdirAll(filepath.Dir(socket), 0755); err != nil {
-		return nil, fmt.Errorf("failed to create directory %q: %v", filepath.Dir(socket), err)
+func setupSocket(socketPath string) (net.Listener, error) {
+	os.RemoveAll(filepath.Dir(socketPath))
+	if err := os.MkdirAll(filepath.Dir(socketPath), 0700); err != nil {
+		return nil, fmt.Errorf("failed to create directory %q: %v", filepath.Dir(socketPath), err)
 	}
-	listener, err := net.Listen("unix", socket)
+	listener, err := net.Listen("unix", socketPath)
 	if err != nil {
-		return nil, fmt.Errorf("failed to listen on %q: %v", socket, err)
+		return nil, fmt.Errorf("failed to listen on %q: %v", socketPath, err)
 	}
 
-	log.Printf("Listening on: unix://%s", socket)
+	log.Printf("Listening on: unix://%s", socketPath)
 	return listener, nil
 }
 
