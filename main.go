@@ -8,6 +8,7 @@ import (
 	"os"
 	"os/signal"
 	"path/filepath"
+	"syscall"
 
 	log "github.com/Sirupsen/logrus"
 )
@@ -130,7 +131,7 @@ func main() {
 
 func setupSignals(socketPath string) {
 	interrupt := make(chan os.Signal, 1)
-	signal.Notify(interrupt, os.Interrupt)
+	signal.Notify(interrupt, os.Interrupt, syscall.SIGTERM)
 	go func() {
 		<-interrupt
 		os.RemoveAll(filepath.Dir(socketPath))
