@@ -6,6 +6,12 @@ The following images show a simple example of how **status** and **controls** ar
 <img src="imgs/container_view.png" width="200" alt="Scope Probe plugin screenshot" align="center">
 
 ## How to Run Scope Traffic Control Plugin
+
+The Scope Traffic Control plugin can be executed stand alone.
+It will respond to `GET /report` request on the `/var/run/scope/plugins/traffic-control/traffic-control.sock` in a JSON format.
+If the running plugin has been registered by Scope, you will see it in the list of `PLUGINS` in the bottom right of the UI (see the green rectangle in the above figure).
+The measured values are shown in the *STATUS* section (see the circle in the above figure).
+
 **Note**: This plugin requires the `sch_netem` kernel module.
 
 ### Using a pre-built Docker image
@@ -39,9 +45,6 @@ kubectl create -f https://github.com/weaveworks-plugins/scope-traffic-control/tr
 git clone git@github.com:weaveworks-plugins/scope-traffic-control.git
 cd scope-traffic-control; make;
 ```
-
-**Note** The Scope Traffic Control plugin works with *Weave Scope*, you need to have Scope up and running before you can use it.
-If the running plugin has been registered by Scope, you will see it in the list of `PLUGINS` in the bottom right of the UI (see the rectangle in the above figure).
 
 ## Visualization
 
