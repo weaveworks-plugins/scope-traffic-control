@@ -3,14 +3,14 @@
 The Scope Traffic Control plugin allows to modify the performance parameters of container's network interfaces using [Weave Scope](https://github.com/weaveworks/scope).
 The following images show a simple example of how **status** and **controls** are displayed in scope UI.
 
-<img src="imgs/container_view.png" width="200" alt="Scope Probe plugin screenshot" align="center">
+<img src="imgs/traffic-control.png" width="1024
+" alt="Scope Probe plugin screenshot" align="center">
 
 ## How to Run Scope Traffic Control Plugin
 
 The Scope Traffic Control plugin can be executed stand alone.
 It will respond to `GET /report` request on the `/var/run/scope/plugins/traffic-control/traffic-control.sock` in a JSON format.
 If the running plugin has been registered by Scope, you will see it in the list of `PLUGINS` in the bottom right of the UI (see the green rectangle in the above figure).
-The measured values are shown in the *STATUS* section (see the circle in the above figure).
 
 **Note**: This plugin requires the `sch_netem` kernel module.
 
@@ -52,9 +52,10 @@ The parameters are shown in a table named **Traffic Control**. The plugin shows 
 
 ## Controls
 
-The Scope Traffic Controls plugin provides a simple interface to change the value of latency (hourglass buttons) and packet loss (scissor button) or remove value that was set (circled cross button). Such buttons are displayed on the top of the container detailed view, just above the *STATUS* section (See picture below, control are shown inside the red rectangle).
+The Scope Traffic Controls plugin provides a simple interface to change the value of latency (hourglass buttons) and packet loss (scissor button) or remove value that was set (circled cross button). Such buttons are displayed on the top of the container detailed view, just above the *STATUS* section (See picture below, control are shown inside the green rectangle).
 
-<img src="imgs/controls.png" width="400" alt="Scope Probe plugin screenshot" align="center">
+<img src="imgs/controls.png" width="512
+" alt="Scope Probe plugin screenshot" align="center">
 
 The *hourglass* buttons control the latency, from left to right they set: *2000ms*, *1000ms*, and *500ms*.
 The *scissor* button controls the packet loss, it sets a 10% packet loss.
