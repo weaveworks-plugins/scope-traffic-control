@@ -59,4 +59,15 @@ The Scope Traffic Controls plugin provides a simple interface to change the valu
 
 The *hourglass* buttons control the latency, from left to right they set: *2000ms*, *1000ms*, and *500ms*.
 The *scissor* button controls the packet loss, it sets a 10% packet loss.
-The *circled cross* button clear any previous settings.
+The *circled cross* button clear any previous settings.#
+
+## <a name="help"></a>Getting Help
+
+If you have any questions about, feedback for or problems with `scope-traffic-control`:
+
+- Invite yourself to the <a href="https://weaveworks.github.io/community-slack/" target="_blank"> #weave-community </a> slack channel.
+- Ask a question on the <a href="https://weave-community.slack.com/messages/general/"> #weave-community</a> slack channel.
+- Send an email to <a href="mailto:weave-users@weave.works">weave-users@weave.works</a>
+- <a href="https://github.com/weaveworks-plugins/scope-traffic-control/issues/new">File an issue.</a>
+
+Your feedback is always welcome!
