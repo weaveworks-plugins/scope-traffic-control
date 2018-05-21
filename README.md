@@ -36,7 +36,7 @@ docker run --rm -it \
 If you want to use the Scope Traffic Control plugin in an already set up Kubernetes cluster with Weave Scope running on it, you just need to run:
 
 ```
-kubectl create -f https://github.com/weaveworks-plugins/scope-traffic-control/tree/master/deployments/k8s-traffic-control.yaml
+kubectl create -f https://raw.githubusercontent.com/weaveworks-plugins/scope-traffic-control/master/deployments/k8s-traffic-control.yaml
 ```
 
 ### Recompiling an image
