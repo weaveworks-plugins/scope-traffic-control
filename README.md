@@ -1,4 +1,4 @@
-# Scope Traffic Control Plugin
+# DEPRECATED: Scope Traffic Control Plugin
 
 The Scope Traffic Control plugin allows to modify the performance parameters of container's network interfaces using [Weave Scope](https://github.com/weaveworks/scope).
 The following images show a simple example of how **status** and **controls** are displayed in scope UI.
